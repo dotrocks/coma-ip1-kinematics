@@ -10,6 +10,8 @@ The project is divided into 3 parts:
 2. **MATH103**: Mathematical modeling of the projectile motion using matrices and vectors.
 3. **EE101**: Solving matrices using C++
 
+Code for EE101 part: <https://gist.github.com/barbarbar338/b66e2a404abb3a7f7c4d542204a3626a>
+
 ## Team Members
 
 - Barış DEMİRCİ - <agu@338.rocks>
