@@ -1,0 +1,170 @@
+\chapter{MATH103: Matrix Operations and Linear Systems}
+
+\begin{equation}
+    A = \begin{pmatrix}
+        100 & 3.5 & 15 \\
+        97 & 7.9 & 30 \\
+        58 & 7.6 & 45
+    \end{pmatrix}
+\end{equation}
+
+These values are from the experimental part of this project.
+
+\section{Inverse of Matrix A}
+
+\subsection{Elimination Matrices}
+
+\begin{equation}
+    E_1 = \begin{pmatrix}
+        1 & 0 & 0 \\
+        -0.97 & 1 & 0 \\
+        0 & 0 & 1
+    \end{pmatrix}
+\end{equation}
+
+\begin{equation}
+    E_2 = \begin{pmatrix}
+        1 & 0 & 0 \\
+        0 & 1 & 0 \\
+        0 & -0.96202 & 1
+    \end{pmatrix}
+\end{equation}
+
+\subsection{Taking the Inverse of Matrix A}
+
+\begin{equation}
+    I = \begin{pmatrix}
+        1 & 0 & 0 \\
+        0 & 1 & 0 \\
+        0 & 0 & 1
+    \end{pmatrix}
+\end{equation}
+
+\begin{equation}
+    \left( A | I \right) = \left( \begin{array}{ccc|ccc}
+        100 & 3.5 & 15 & 1 & 0 & 0 \\
+        97 & 7.9 & 30 & 0 & 1 & 0 \\
+        58 & 7.6 & 45 & 0 & 0 & 1
+    \end{array} \right)
+\end{equation}
+
+\begin{equation}
+    E_2 \cdot E_1 \cdot \left( A | I \right) = \left( \begin{array}{ccc|ccc}
+        1 & 0 & 0 & 0.01645 & -0.00561 & -0.00174 \\
+        0 & 1 & 0 & -0.33881 & 0.46853 & -0.19941 \\
+        0 & 0 & 1 & -0.03601 & -0.07189 & 0.05814
+    \end{array} \right) = \left( I | A^{-1} \right)
+\end{equation}
+
+\begin{equation}
+    A^{-1} = \begin{pmatrix}
+        0.01645 & -0.00561 & -0.00174 \\
+        -0.33881 & 0.46853 & -0.19941 \\
+        -0.03601 & -0.07189 & 0.05814
+    \end{pmatrix}
+\end{equation}
+
+\newpage
+\thispagestyle{plain}
+
+\subsection{ALU Factorization of Matrix A}
+\begin{equation}
+    A = \begin{pmatrix}
+        100 & 3.5 & 15 \\
+        97 & 7.9 & 30 \\
+        58 & 7.6 & 45
+    \end{pmatrix} = L \cdot U
+\end{equation}
+
+\begin{equation}
+    L = \begin{pmatrix}
+        1 & 0 & 0 \\
+        0.97 & 1 & 0 \\
+        0.58 & 1.2364 & 1
+    \end{pmatrix}
+\end{equation}
+
+\begin{equation}
+    U = \begin{pmatrix}
+        100 & 3.5 & 15 \\
+        0 & 4.505 & 15.45 \\
+        0 & 0 & 17.1976
+    \end{pmatrix}
+\end{equation}
+
+\section{Linear System Using Data From Experiment}
+
+let
+\begin{align*}
+    t &= 1s \\
+    v_0 &= 20 \frac{m}{s} \\
+    g &= 10 \frac{m}{s^2} \\
+\end{align*}
+
+\noindent let $\theta = 45^{\circ}$ for $R_{\max}$
+
+\begin{equation}
+    x(2) = 20 \cdot \cos(45^{\circ}) = R_{\max} = 10 \sqrt{2} m
+\end{equation}
+
+\noindent let $\theta = 90^{\circ}$ for $H_{\max}$
+
+\begin{equation}
+    y(2) = 20 \cdot \sin(90^{\circ}) - \frac{1}{2} \cdot 10 = H_{\max} = 15 m
+\end{equation}
+
+\newpage
+\thispagestyle{plain}
+
+\begin{align}
+    Ax &= b \\
+    \begin{pmatrix}
+        1 & 2 \\
+        3 & 4
+    \end{pmatrix} \cdot \begin{pmatrix}
+        x_1 \\
+        x_2
+    \end{pmatrix} &= \begin{pmatrix}
+        10 \sqrt{2} \\
+        15
+    \end{pmatrix} \\
+    \left( A | b \right) &= \left( \begin{array}{cc|c}
+        1 & 2 & 10 \sqrt{2} \\
+        3 & 4 & 15
+    \end{array} \right) \\
+    P_1 &= \begin{pmatrix}
+        0 & 1 \\
+        1 & 0
+    \end{pmatrix} \\
+    P_1 \cdot \left( A | b \right) &= \left( \begin{array}{cc|c}
+        3 & 4 & 15 \\
+        1 & 2 & 10 \sqrt{2}
+    \end{array} \right) \\
+    E_{12} &= \begin{pmatrix}
+        1 & -4 \\
+        0 & 1
+    \end{pmatrix} \\
+    E_{21} &= \begin{pmatrix}
+        1 & 0 \\
+        -\frac{1}{3} & 1
+    \end{pmatrix} \\
+    E_{12} \cdot E_{21} \cdot P_1 \cdot \left( A | b \right) &= \left( \begin{array}{cc|c}
+        1 & 0 & 15 - 20\sqrt{2} \\
+        0 & 1 & 15 \sqrt{2} - \frac{15}{2}
+    \end{array} \right) \\
+\end{align}
+
+\begin{equation}
+    \begin{pmatrix}
+        x_1 \\
+        x_2
+    \end{pmatrix} = \begin{pmatrix}
+        15 - 20\sqrt{2} \\
+        15 \sqrt{2} - \frac{15}{2}
+    \end{pmatrix}
+\end{equation}
+
+\begin{align}
+    x_1 &= 5 \cdot (3 - 4\sqrt{2}) \\
+    x_2 &= 15 \cdot (\sqrt{2} - \frac{1}{2})
+\end{align}

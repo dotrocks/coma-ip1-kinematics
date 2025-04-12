@@ -1,0 +1,51 @@
+\def\paperTitle{Integrated Project \#1}
+\def\paperSubTitle{Kinematics}
+
+\documentclass[
+	12pt,twoside,a4paper
+]{report}
+
+\usepackage{graphicx}
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+\usepackage[utf8]{inputenc}
+\usepackage{etoc}
+\usepackage{xcolor, soul}
+\usepackage{listings}
+\usepackage{amsmath}
+\usepackage[T1]{fontenc}
+\usepackage{hyperref}
+
+\sethlcolor{yellow}
+
+
+\fancypagestyle{plain}{
+	\fancyhf{}
+	\fancyhead[l]{\paperTitle}
+	\fancyhead[c]{\paperSubTitle}
+	\fancyhead[r]{December 22, 2023}
+	\fancyfoot[le, ro]{Page \thepage}
+	\setlength{\headheight}{15pt}
+	\renewcommand{\headrulewidth}{0.2pt}
+	\renewcommand{\footrulewidth}{0.2pt}
+}	
+
+\thispagestyle{plain}
+
+\renewcommand{\etocaftertitlehook}{\thispagestyle{plain}}
+\renewcommand{\etocaftertochook}{\thispagestyle{plain}}
+
+\begin{document}
+	\include{title}
+
+	\tableofcontents
+
+	\include{chapters/01-introduction}
+	\include{chapters/02-preparing}
+	\include{chapters/03-theoretical}
+	\include{chapters/04-experiment}
+	\include{chapters/05-math103}
+	\include{chapters/06-ee101}
+	\include{chapters/07-conclusion}
+
+\end{document}
