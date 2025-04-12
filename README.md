@@ -12,7 +12,7 @@ The project is divided into 3 parts:
 
 Code for EE101 part: <https://gist.github.com/barbarbar338/b66e2a404abb3a7f7c4d542204a3626a>
 
-*NOTE:* Please note that the calculations on the report may not be accurate, as the project was done in my freshman year and I was not very familiar with the concepts at that time. I want to keep this project as a reference for my future self and for anyone who may find it useful.
+**NOTE:** Please note that the calculations on the report may not be accurate, as the project was done in my freshman year and I was not very familiar with the concepts at that time. I want to keep this project as a reference for my future self and for anyone who may find it useful.
 
 ## Team Members
 
